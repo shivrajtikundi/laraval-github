@@ -21,8 +21,10 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: '14'
-    - name: Install JavaScript Dependencies
+    - name: npm install
       run: npm install
+    - name: npm run dev
+      run: npm run dev      
     - name: Generate Key
       run: php artisan key:generate
     - name: Set File Permissions
