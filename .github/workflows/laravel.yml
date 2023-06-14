@@ -23,8 +23,8 @@ jobs:
         node-version: '14'
     - name: npm install
       run: npm install
-    - name: npm run dev
-      run: npm run dev      
+#    - name: npm run dev
+#      run: npm run dev      
     - name: Generate Key
       run: php artisan key:generate
     - name: Set File Permissions
@@ -46,4 +46,4 @@ jobs:
         username: ubuntu
         key: ${{ secrets.EC2_PRIVATE_KEY }}
         source: ./
-        target: /home/ubuntu
+        target: /home/ubuntu/laravel
