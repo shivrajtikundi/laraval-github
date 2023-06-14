@@ -1,0 +1,19 @@
+name: Deploy
+
+on:
+  push:
+    branches: ["master"]
+  pull_request:
+    branches: ["master"]
+    
+jobs:
+  deploy:
+     runs-on: ubuntu-latest
+     steps:
+       - uses: actions/checkout@v3
+       - name: Deploy to server
+         uses: appleboy/ssh-actions@master
+         with: 
+           host: 3.6.179.69
+           key: ${{ secrets.SSHKEY }}
+           script: "cd /var/www/laravel && ./.scripts/deploy.sh"
